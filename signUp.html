@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="form.css" type="text/css">
 </head>
+    
 <body>
     <div class="container text-center">
         <br><a href="home.html" style="font-size: 35px; color: black;"><img src="round_library_music_black_18dp.png" style="padding: 5px;">Music</a>      
@@ -18,9 +19,9 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-4">
+            <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-5">
                 <br><div class="text-center"><h5>Sign Up with Email ID</h5></div><br>
-                <form action="/action_page.php" method="post" class="col-*" class="was-validated">
+                <form action="signup.php" method="post" class="col-*" class="was-validated">
 
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Username" name="Uname" required>
@@ -35,51 +36,52 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password" name="cpswd" required>
+                    <input type="number" class="form-control" placeholder="Mobile Number" name="mobNo" required>
                 </div>
 
                 <span class="custom-control-description text-black-50">Date Of Birth</span>
-                <div class="form-inline">
-                    <input type="number" class="form-control col-3" name="date" placeholder="DD" min="1" max="31" required>&ensp;&nbsp;
+                <div class="form-inline justify-content-between">
+                    <input type="number" class="form-control col-2" name="date" value="date" placeholder="DD" min="1" max="31" required>
 
-                    <select class="form-control col-5" name="month">
-                        <option>Month</option>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
-                    </select>&ensp;&nbsp;
+                    <select class="form-control col-5" name="month" value="month">
+                        <option value="Month">Month</option>
+                        <option value="Jan">January</option>
+                        <option value="Feb">February</option>
+                        <option value="Mar">March</option>
+                        <option value="Apr">April</option>
+                        <option value="May">May</option>
+                        <option value="Jun">June</option>
+                        <option value="Jul">July</option>
+                        <option value="Aug">August</option>
+                        <option value="Sep">September</option>
+                        <option value="Oct">October</option>
+                        <option value="Nov">November</option>
+                        <option value="Dec">December</option>
+                    </select>
 
-                    <input type="number" class="form-control col-3" name="year" placeholder="YYYY" min="1970" max="2019" required>
+                    <input type="number" class="form-control col-3" name="year" value="year" placeholder="YYYY" min="1970" max="2019" required>
                 </div><br>
 
                 <div class="text-center">
                     <div class="form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender">Male
+                        <input type="radio" class="form-check-input" name="gender" value="Male">Male
                     </div>
 
                     <div class="form-check-inline">
-                        <input type="radio" class="form-check-input" name="female">Female
+                        <input type="radio" class="form-check-input" name="gender" value="Female">Female
                     </div>
 
                     <div class="form-check-inline">
-                        <input type="radio" class="form-check-input" name="other">Other
+                        <input type="radio" class="form-check-input" name="gender" value="Other">Other
                     </div><br>
                 </div>
                 
                 <br>  
 
-                <div class="form-group form-check text-center">
-                    <input class="form-check-input" type="checkbox" name="tAndC"> You agree to Music's <a href="#">Terms and Conditions</a>.
-                </div>
+                <div class="custom-control custom-checkbox text-center">
+                    <input type="checkbox" class="custom-control-input" id="customCheck" name="tAndC">
+                    <label class="custom-control-label" for="customCheck"> You agree to Music's <a href="#">Terms and Conditions</a>.</label>
+                </div><br>
 
                 <div class="text-center"><button type="submit" class="btn btn-primary">Sign Up</button></div><hr>
               </form>
