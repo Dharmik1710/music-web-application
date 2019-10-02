@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.navbar-brand{
+    font-size: 35px;
+}
+
+.navbar-brand img{
+    padding: 5px;
+}
+
+.navbar-nav .nav-link{
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link:link{
+    color: black;
+}
+
+.carousel{
+    margin-top: 78px;
+}
+
+.carousel-inner img {
+      width: 100%;
+      height: 100%;
+}
+
+.feature .icon_size{
+    height: 100px;
+    width: 100px;
+}
+
+.icon_size i{
+    font-size: 100px;
+}
+
+.page-footer{
+    background-color: black;
+}
+
+.brand-name{
+    font-size: 35px;
+    letter-spacing: 0.03em;
+}
+
+.brand-name a{
+    color: white;
+    text-decoration: none;
+}
+
+.brand-name img{
+    padding: 5px; 
+    filter: invert(100%);
+}
+
+.fc a{
+    color: white;
+    letter-spacing: 0.05em;
+}
+
+.fc a:hover{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.fc h6{
+    color: darkgrey;
+    letter-spacing: 0.1em;
+}
+
+.fc a img{
+    height: 25px;
+    width: 25px;
+}
+
+.footer-copyright, .footer-copyright a{
+    color: grey;
+}
+
+.footer-copyright strong{
+    float: right;
+}
+
+.p-6 {
+  padding-top: 7rem !important;
+  padding-bottom: 7rem !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+.p-7{
+    padding-top: 4rem!important;
+    padding-bottom: 9rem!important;
+}
