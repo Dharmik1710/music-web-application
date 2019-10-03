@@ -12,18 +12,23 @@ body,html{
 }
 
 .navbar-brand img{
-    padding: 5px;
+    padding: 4px;
 }
 
-nav .active{
+.nav a:link{
+  font-weight: 500;
+}
+
+.nav .active{
   background-color: rgb(64, 64, 64);
-  border-radius: 8px;
+  border-radius: 4px;
+  color: white;
 }
 
-nav a:hover{
+.nav a:hover{
   background-color: rgb(64, 64, 64);
   color: white;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .navbar-brand{
@@ -42,8 +47,8 @@ nav a:hover{
     filter: invert(100%);
 }
 
-nav .nav-link{
+.nav .nav-link{
   color: white;
   letter-spacing: 0.05em;
-  margin-top: 4px;
+  margin-top: 2px;
 }
