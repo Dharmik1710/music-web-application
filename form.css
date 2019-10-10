@@ -28,3 +28,7 @@ input[type=number]::-webkit-outer-spin-button {
 .form-control::placeholder{
     opacity: 0.85;
 }
+
+.alert{
+  text-align: center;
+}

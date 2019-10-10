@@ -1,0 +1,200 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+/*navbar menu*/
+.navbar-brand img{
+    padding: 4px;
+}
+
+.nav a:link{
+  font-weight: 500;
+}
+
+.nav .active{
+  background-color: rgb(64, 64, 64);
+  border-radius: 4px;
+  color: white;
+}
+
+.nav a:hover{
+  background-color: rgb(64, 64, 64);
+  color: white;
+  border-radius: 5px;
+}
+
+.navbar-brand{
+  font-size: 35px;
+  letter-spacing: 0.03em;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-brand:hover{
+  color: white;
+}
+
+.navbar-brand img{
+    padding: 5px; 
+    filter: invert(100%);
+}
+
+.nav .nav-link{
+  color: white;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+a{
+  color: grey;
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+/*Song card*/
+.card-img-overlay i{
+  display: none;
+}
+
+.card:hover i{
+  display: inline-block;
+}
+
+.card:hover img{
+  opacity: 0.3;
+}
+
+.song-disp .song-name{
+  text-overflow: ellipsis;
+  width: 150px;
+  overflow: hidden;
+}
+
+/*Audio Player*/
+.audio-container{
+  height: 100px;
+  background-color: gray;
+  width: 100%;
+  color: white;
+}
+
+.audio-container a{
+  color: white;
+  text-decoration: none;
+}
+
+.song-info{
+  display: inline-block;
+  height: 100px;
+  padding: 0 2px;
+}
+
+.song-info .song-img{
+  float: left;
+  margin-top: 15px;
+  padding: 0 6px;
+}
+
+.song-info img{
+  width: 70px;
+  height: 70px;
+}
+
+.song-info .song-artist{
+  display: inline-flex;
+  margin-top: 15px;
+  text-overflow: ellipsis;
+  width: 135px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.song-info .song-opt{
+  margin-top: 10px;
+  display: inline-flex;
+  width: 135px;
+}
+
+.song-opt i{
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.player{
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 260px;
+}
+
+.song-slider{
+  width: 720px;
+}
+
+.current-time{
+  padding: 0 10px;
+  font-size: 13px;
+  float: left;
+}
+
+.duration{
+  padding: 0 10px;
+  font-size: 13px;
+  float: right;
+}
+
+.controllers{
+  display: table;
+  position: absolute;
+  top: 33px;;
+  left: 552px;
+  clear: both;
+}
+
+.vol-slider{
+  width: 120px;
+}
+
+.vol-max, .vol-mute, .vol-slider{
+  position: relative;
+  left: 350px;
+  top: 30px;
+  font-size: 10px;
+}
+
+.controllers *{
+  vertical-align: middle;
+}
+
+.controllers i{
+  padding: 0 5px;
+  font-size: 30px;
+}
+
+.song-title{
+  position: absolute;
+  top: 5px;
+  text-align: center;
+  left: 230px;
+  width: 885px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+i{
+  cursor: pointer;
+}

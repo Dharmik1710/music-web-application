@@ -20,7 +20,7 @@
 <section>    
   <nav class="navbar navbar-expand-md bg-light fixed-top navbar-light" style="opacity: 0.8;">
         
-    <a href="home.html" class="navbar-brand ml-lg-5 ml-md-3"><img src="round_library_music_black_18dp.png">Music</a>
+    <a href="home.html" class="navbar-brand ml-lg-5 ml-md-3"><img src="./icons/round_library_music_black_18dp.png">Music</a>
         
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -96,7 +96,7 @@
       <div class="row mx-md-4">
 
         <div class="brand-name col-md-12 col-xl-2 pl-md-0 mb-3">
-          <a href="home.html" class="font-weight-light"><img src="round_library_music_black_18dp.png">Music</a>
+          <a href="home.html" class="font-weight-light"><img src="./icons/round_library_music_black_18dp.png">Music</a>
         </div>
 
         <div class="fc col-md-6 col-xl-2 mx-auto">
@@ -141,9 +141,9 @@
         <div class="fc col-md-6 col-xl-2 mx-auto">
           <h6 class="text-uppercase my-4">Follow us</h6>
           <ul class="list-inline list-unstyled justify-content-around">
-            <li class="list-inline-item"><a href="#!"><img src="icons8-facebook-20.png"></a></li>
-            <li class="list-inline-item"><a href="#!"><img src="icons8-twitter-20.png"></a></li>
-            <li class="list-inline-item"><a href="#!"><img src="icons8-google-plus-squared-20.png"></a></li>
+            <li class="list-inline-item"><a href="#!"><img src="./icons/icons8-facebook-20.png"></a></li>
+            <li class="list-inline-item"><a href="#!"><img src="./icons/icons8-twitter-20.png"></a></li>
+            <li class="list-inline-item"><a href="#!"><img src="./icons/icons8-google-plus-squared-20.png"></a></li>
           </ul>
         </div>
 
@@ -152,7 +152,7 @@
 
     <div class="footer-copyright pb-3 ml-3 ml-lg-5">© 2019 Copyright:
       <a href="home.html"> music.com</a>
-        <strong class="text-right mr-3 mr-lg-5"><img src="india-flag-round-icon-16.png" class="mr-2">India</strong>
+        <strong class="text-right mr-3 mr-lg-5"><img src="./icons/india-flag-round-icon-16.png" class="mr-2">India</strong>
     </div>
   </footer>
 </section>
