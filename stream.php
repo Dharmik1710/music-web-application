@@ -33,7 +33,7 @@
     
     
     <section class="song-disp col-10 pl-2">
-      <div class="overflow-auto mx-auto" style="background-color: rgb(38, 38, 38); height: 580px;">
+      <div class="overflow-auto mx-auto" style="background-color: rgb(38, 38, 38); height: 540px;">
 
         <div class="tab-content" id="v-pills-tabContent">
 
@@ -57,10 +57,10 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-white my-5" id="pills-featured" role="tabpanel" aria-labelledby="pills-featured-tab">
               <div class="category mt-4">
-                <div class="cat-head"><h4 class="d-inline">Catgory 1</h4>
-                <a href="#" class="d-inline float-right mt-2">see more</a></div>
-                <div class="row mx-auto justify-content-around my-2 w-100">
-                  <div class="song-disp">
+                <div class="cat-head mb-2"><h4 class="d-inline">Catgory 1</h4>
+                <a href="#" class="d-inline float-right mt-2 mr-3">see more</a></div>
+                <div class="row mx-auto flex-row my-2 w-100">
+                  <div class="song-disp mx-2">
                     <div class="card my-2 bg-dark">
                       <img class="card-img-top" src="antique%20dvd%20player.jpeg" style="height: 150px; width: 150px;">
                       <div class="card-img-overlay text-center mt-5">
@@ -68,7 +68,6 @@
                         <i class="material-icons p-1" onclick="playPauseSong(this, 'sample-1.mp3')">play_arrow</i>
                         <i class="material-icons p-1">thumb_up</i>
                       </div>
-
                     </div>
                     <p class="song-name text-center mb-1">Bouliverd of Broken Dreams</p>
                   </div>
