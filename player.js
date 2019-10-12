@@ -6,10 +6,10 @@ var volSlider = document.getElementById("volSlider");
 
 var song = new Audio();
 
-function playPauseSong(obj, s){
-  if(currentSong != obj){
-    song.src = "./songs/"+s;
-    
+function playPauseSong(obj, s) {
+  if(currentSong !== obj){
+    song.src = "./songs/" + s + ".mp3";
+    document.getElementById("img-thumb").setAttribute("src","./Album_Art/"+s+".jpg");
     song.addEventListener('loadeddata', () => {
       var d = Math.floor(song.duration);
       songSlider.setAttribute("max", d);

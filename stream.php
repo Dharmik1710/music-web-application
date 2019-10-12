@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+?>
+
 <html lang="en">
 <head>
   <title>Music-Home</title>
@@ -12,6 +15,7 @@
 </head>
     
 <body style="">
+  <div></div>
     
 <section>
 
@@ -33,7 +37,7 @@
     
     
     <section class="song-disp col-10 pl-2">
-      <div class="overflow-auto mx-auto" style="background-color: rgb(38, 38, 38); height: 540px;">
+      <div class="overflow-auto mx-auto" style="background-color: rgb(38, 38, 38); height: 550px;">
 
         <div class="tab-content" id="v-pills-tabContent">
 
@@ -41,13 +45,10 @@
           <div class="tab-pane fade show active mx-5 my-4" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <ul class="nav my-4" id="pills-tab" role="tablist">
               <li class="nav-item mr-3">
-                <a class="nav-link active" id="pills-featured-tab" data-toggle="pill" href="#pills-featured" role="tab" aria-controls="pills-featured" aria-selected="true">Featured</a>
+                <a class="nav-link active" id="pills-genres-tab" data-toggle="pill" href="#pills-genres" role="tab" aria-controls="pills-genres" aria-selected="true">GENRES</a>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link" id="pills-genre-tab" data-toggle="pill" href="#pills-genre" role="tab" aria-controls="pills-genre" aria-selected="false">Genre</a>
-              </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link" id="pills-hits-tab" data-toggle="pill" href="#pills-hits" role="tab" aria-controls="pills-hits" aria-selected="false">Top hits</a>
+                <a class="nav-link" id="pills-artists-tab" data-toggle="pill" href="#pills-artists" role="tab" aria-controls="pills-artists" aria-selected="false">ARTISTS</a>
               </li>
               <li class="nav-item mx-3">
                 <a class="nav-link" id="pills-new-tab" data-toggle="pill" href="#pills-new" role="tab" aria-controls="pills-new" aria-selected="false">New Releases</a>
@@ -55,30 +56,82 @@
           </ul>
 
           <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active text-white my-5" id="pills-featured" role="tabpanel" aria-labelledby="pills-featured-tab">
-              <div class="category mt-4">
-                <div class="cat-head mb-2"><h4 class="d-inline">Catgory 1</h4>
-                <a href="#" class="d-inline float-right mt-2 mr-3">see more</a></div>
-                <div class="row mx-auto flex-row my-2 w-100">
-                  <div class="song-disp mx-2">
+            <div class="tab-pane fade show active text-white my-5" id="pills-genres" role="tabpanel" aria-labelledby="pills-genres-tab">
+              
+            <?php
+              require_once "dbConn.php";
+
+              $queryCat = "SELECT DISTINCT Genre FROM songs";
+              $resultCat = mysqli_query($conn, $queryCat);
+
+              while($cat = mysqli_fetch_assoc($resultCat)){
+                echo
+                  '
+                  <div class="category mt-4">
+                    <div class="cat-head">
+                      <h4 class="d-inline">'.$cat["Genre"].'</h4>
+                      <a href="#" onClick="seeMore('.$_SESSION["flag"].')" class="d-inline float-right mt-2 mr-4">see more</a>
+                    </div>
+                    <div class="row mx-auto mt-2 mb-5 w-100">
+                ';
+                
+                $querySong = "SELECT * FROM songs WHERE Genre = '".$cat["Genre"]."' LIMIT 0, 6";
+                $resultSong = mysqli_query($conn, $querySong);
+                while($song = mysqli_fetch_assoc($resultSong)){
+                  echo
+                    '
+                      <div class="song-disp mr-3 mt-2">
+                        <div class="card my-2 bg-dark">
+                          <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
+                          <div class="card-img-overlay text-center mt-5">
+                            <i class="material-icons p-1">playlist_add</i>
+                            <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\')">play_arrow</i>
+                            <i class="material-icons p-1">thumb_up</i>
+                          </div>
+                        </div>
+                        <div class="song-name text-center mb-3" style="text-overflow: ellipsis; width:140px; white-space: nowrap; overflow: hidden;">'.$song["Song_Name"].'</div>
+                      </div>
+
+                    ';
+                }
+                echo '</div>';
+                echo '</div>';
+              }
+              
+              mysqli_close($conn);
+            ?>    
+              
+              
+              
+              
+              
+<!--
+              
+              <div class="category mt-5">
+                <div class="cat-head">
+                  <h4 class="d-inline">Catgory 1</h4>
+                  <a href="#" class="d-inline float-right mt-2 mr-4">see more</a>
+                </div>
+                <div class="row mx-auto my-3 w-100">
+                  <div class="song-disp mr-3">
                     <div class="card my-2 bg-dark">
-                      <img class="card-img-top" src="antique%20dvd%20player.jpeg" style="height: 150px; width: 150px;">
+                      <img class="card-img-top rounded" src="./Album_Art/1400%20%20999%20Freestyle.jpg" style="height: 145px; width: 145px;">
                       <div class="card-img-overlay text-center mt-5">
                         <i class="material-icons p-1">playlist_add</i>
                         <i class="material-icons p-1" onclick="playPauseSong(this, 'sample-1.mp3')">play_arrow</i>
                         <i class="material-icons p-1">thumb_up</i>
                       </div>
                     </div>
-                    <p class="song-name text-center mb-1">Bouliverd of Broken Dreams</p>
+                    <div class="song-name text-center mb-1">Bouliverd of Broken Dreams</div>
                   </div>
                 </div>
-              </div>
+-->
+
               
             </div>
 
-            <div class="tab-pane fade" id="pills-genre" role="tabpanel" aria-labelledby="pills-genre-tab"><p style="color: white;">genre</p></div>
-            <div class="tab-pane fade" id="pills-hits" role="tabpanel" aria-labelledby="pills-hits-tab"><p style="color: white;">hits</p></div>
-            <div class="tab-pane fade" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab"><p style="color: white;">new</p></div>
+            <div class="tab-pane fade" id="pills-artists" role="tabpanel" aria-labelledby="pills-artists-tab"></div>
+            <div class="tab-pane fade" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab"></div>
           </div>    
         </div>
 
@@ -99,8 +152,8 @@
 <section class="audio-display fixed-bottom">
   <div class="audio-container">
     <div class="song-info col-2">
-      <div class="song-img" id="songImg"><img src="carousel1.jpg"></div>
-      <div class="song-artist" id="songArtist"><a href="#">Artist Nameeeeeeeeeeeeeeeeerwer</a></div>
+      <div class="song-img" id="songImg"><img id="img-thumb"></div>
+      <div class="song-artist" id="songArtist"><a href="#">Artist Name</a></div>
       <div class="song-opt">
         <i class="material-icons"><a href="#">playlist_add</a></i>
         <i class="material-icons"><a href="#">thumb_up</a></i>
@@ -128,6 +181,6 @@
 
 </section>  
   
-<script src="player.js"></script>  
+<script src="player.js?v=1"></script>  
 </body>  
 </html>

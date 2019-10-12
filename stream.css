@@ -69,6 +69,12 @@ a:hover{
   display: none;
 }
 
+.card{
+  display: block;
+  height: 145px;
+  width: 145px;
+}
+
 .card:hover i{
   display: inline-block;
 }
@@ -77,10 +83,13 @@ a:hover{
   opacity: 0.3;
 }
 
-.song-disp .song-name{
+.songName{
+  color: red;
   text-overflow: ellipsis;
-  width: 150px;
+  width: 145px;
   overflow: hidden;
+  white-space: nowrap;
+  display: block;
 }
 
 /*Audio Player*/
