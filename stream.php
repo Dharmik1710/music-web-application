@@ -70,7 +70,7 @@
                   '
                   <div class="category mt-4">
                     <div class="cat-head">
-                      <h4 class="d-inline">'.$cat["Genre"].'</h4>
+                      <h2 class="d-inline">'.$cat["Genre"].'</h2>
                       <a href="#" onClick="seeMore()" class="d-inline float-right mt-2 mr-4">see more</a>
                     </div>
                     <div class="row mx-auto mt-2 mb-5 w-100">
@@ -92,15 +92,18 @@
                         </div>
                         <div class="song-name text-center mb-3" style="text-overflow: ellipsis; width:140px; white-space: nowrap; overflow: hidden;">'.$song["Song_Name"].'</div>
                       </div>
-
                     ';
                 }
-                echo '</div>';
-                echo '</div>';
+                echo 
+                    '
+                    </div>
+                  </div>
+                  ';
               }
               
-              mysqli_close($conn);
-            ?>    
+            ?>  
+              
+            </div>
               
                       
 <!--
@@ -125,14 +128,102 @@
                 </div>
 -->
 
+            
+            
+            <div class="tab-pane fade show text-white my-5" id="pills-artists" role="tabpanel" aria-labelledby="pills-artists-tab">
+
+            <?php
+
+              $queryCat = "SELECT Artist FROM songs GROUP BY Artist ORDER BY COUNT(*) DESC LIMIT 0, 15";
+              $resultCat = mysqli_query($conn, $queryCat);
+
+              while($cat = mysqli_fetch_assoc($resultCat)){
+                echo
+                  '
+                  <div class="category mt-4">
+                    <div class="cat-head">
+                      <h2 class="d-inline">'.$cat["Artist"].'</h2>
+                      <a href="#" onClick="seeMore()" class="d-inline float-right mt-2 mr-4">see more</a>
+                    </div>
+                    <div class="row mx-auto mt-2 mb-5 w-100">
+                ';
+                
+                $querySong = "SELECT * FROM songs WHERE Artist = '".$cat["Artist"]."' LIMIT 0,6";
+                $resultSong = mysqli_query($conn, $querySong);
+                while($song = mysqli_fetch_assoc($resultSong)){
+                  echo
+                    '
+                      <div class="song-disp mr-4 mt-2">
+                        <div class="card my-2 bg-dark">
+                          <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
+                          <div class="card-img-overlay text-center mt-5 px-0">
+                            <i class="material-icons p-1">playlist_add</i>
+                            <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
+                            <i class="material-icons p-1">thumb_up</i>
+                          </div>
+                        </div>
+                        <div class="song-name text-center mb-3" style="text-overflow: ellipsis; width:140px; white-space: nowrap; overflow: hidden;">'.$song["Song_Name"].'</div>
+                      </div>
+
+                    ';
+                }
+                echo '</div>';
+                echo '</div>';
+              }
               
-            </div>
+            ?>    
 
             
+            </div>
             
-            <div class="tab-pane fade" id="pills-artists" role="tabpanel" aria-labelledby="pills-artists-tab"></div>
     
-            <div class="tab-pane fade" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab"></div>
+            <div class="tab-pane fade show text-white my-5" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab">
+            
+            <?php
+
+              $queryCat = "SELECT DISTINCT Release_Date FROM songs WHERE Release_Date IS NOT NULL ORDER BY Release_Date DESC";
+              $resultCat = mysqli_query($conn, $queryCat);
+
+              while($cat = mysqli_fetch_assoc($resultCat)){
+                echo
+                  '
+                  <div class="category mt-4">
+                    <div class="cat-head">
+                      <h2 class="d-inline">'.$cat["Release_Date"].'</h2>
+                      <a href="#" onClick="seeMore()" class="d-inline float-right mt-2 mr-4">see more</a>
+                    </div>
+                    <div class="row mx-auto mt-2 mb-5 w-100">
+                ';
+                
+                $querySong = "SELECT * FROM songs WHERE Release_Date = '".$cat["Release_Date"]."' LIMIT 0,18";
+                $resultSong = mysqli_query($conn, $querySong);
+                while($song = mysqli_fetch_assoc($resultSong)){
+                  echo
+                    '
+                      <div class="song-disp mr-4 mt-2">
+                        <div class="card my-2 bg-dark">
+                          <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
+                          <div class="card-img-overlay text-center mt-5 px-0">
+                            <i class="material-icons p-1">playlist_add</i>
+                            <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
+                            <i class="material-icons p-1">thumb_up</i>
+                          </div>
+                        </div>
+                        <div class="song-name text-center mb-3" style="text-overflow: ellipsis; width:140px; white-space: nowrap; overflow: hidden;">'.$song["Song_Name"].'</div>
+                      </div>
+
+                    ';
+                }
+                echo '</div>';
+                echo '</div>';
+              }
+              
+            ?>    
+            
+          
+            
+            
+            </div>
           </div>    
         </div>
 
