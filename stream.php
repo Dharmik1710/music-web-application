@@ -51,9 +51,10 @@
                 <a class="nav-link" id="pills-artists-tab" data-toggle="pill" href="#pills-artists" role="tab" aria-controls="pills-artists" aria-selected="false">ARTISTS</a>
               </li>
               <li class="nav-item mx-3">
-                <a class="nav-link" id="pills-new-tab" data-toggle="pill" href="#pills-new" role="tab" aria-controls="pills-new" aria-selected="false">New Releases</a>
+                <a class="nav-link" id="pills-new-tab" data-toggle="pill" href="#pills-new" role="tab" aria-controls="pills-new" aria-selected="false">NEW RELEASES</a>
               </li>
-          </ul>
+            </ul>
+            
 
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active text-white my-5" id="pills-genres" role="tabpanel" aria-labelledby="pills-genres-tab">
@@ -70,7 +71,7 @@
                   <div class="category mt-4">
                     <div class="cat-head">
                       <h4 class="d-inline">'.$cat["Genre"].'</h4>
-                      <a href="#" onClick="seeMore('.$_SESSION["flag"].')" class="d-inline float-right mt-2 mr-4">see more</a>
+                      <a href="#" onClick="seeMore()" class="d-inline float-right mt-2 mr-4">see more</a>
                     </div>
                     <div class="row mx-auto mt-2 mb-5 w-100">
                 ';
@@ -80,12 +81,12 @@
                 while($song = mysqli_fetch_assoc($resultSong)){
                   echo
                     '
-                      <div class="song-disp mr-3 mt-2">
+                      <div class="song-disp mr-4 mt-2">
                         <div class="card my-2 bg-dark">
                           <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
-                          <div class="card-img-overlay text-center mt-5">
+                          <div class="card-img-overlay text-center mt-5 px-0">
                             <i class="material-icons p-1">playlist_add</i>
-                            <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\')">play_arrow</i>
+                            <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
                             <i class="material-icons p-1">thumb_up</i>
                           </div>
                         </div>
@@ -101,10 +102,7 @@
               mysqli_close($conn);
             ?>    
               
-              
-              
-              
-              
+                      
 <!--
               
               <div class="category mt-5">
@@ -130,7 +128,10 @@
               
             </div>
 
+            
+            
             <div class="tab-pane fade" id="pills-artists" role="tabpanel" aria-labelledby="pills-artists-tab"></div>
+    
             <div class="tab-pane fade" id="pills-new" role="tabpanel" aria-labelledby="pills-new-tab"></div>
           </div>    
         </div>
@@ -153,14 +154,14 @@
   <div class="audio-container">
     <div class="song-info col-2">
       <div class="song-img" id="songImg"><img id="img-thumb"></div>
-      <div class="song-artist" id="songArtist"><a href="#">Artist Name</a></div>
+      <div class="song-artist justify-content-center" id="songArtist"><a href="#"></a></div>
       <div class="song-opt">
         <i class="material-icons"><a href="#">playlist_add</a></i>
         <i class="material-icons"><a href="#">thumb_up</a></i>
         <i class="material-icons"><a href="#">notifications</a></i>
       </div>
     </div>
-    <div class="song-title" id="songTitle">Song Name - Artist Name</div>
+    <div class="song-title" id="songTitle"></div>
     <div class="controllers col-10">
       <i class="material-icons" onclick="skipPrev()">skip_previous</i>
       <i class="material-icons" onclick="fastRewind()">fast_rewind</i>

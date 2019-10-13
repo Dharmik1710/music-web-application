@@ -125,14 +125,14 @@ a:hover{
 .song-info .song-artist{
   display: inline-flex;
   margin-top: 15px;
+  margin-left: 25px;
   text-overflow: ellipsis;
-  width: 135px;
   overflow: hidden;
   white-space: nowrap;
 }
 
 .song-info .song-opt{
-  margin-top: 10px;
+  margin-top: 15px;
   display: inline-flex;
   width: 135px;
 }

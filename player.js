@@ -6,7 +6,7 @@ var volSlider = document.getElementById("volSlider");
 
 var song = new Audio();
 
-function playPauseSong(obj, s) {
+function playPauseSong(obj, s, a) {
   if(currentSong !== obj){
     song.src = "./songs/" + s + ".mp3";
     document.getElementById("img-thumb").setAttribute("src","./Album_Art/"+s+".jpg");
@@ -24,6 +24,7 @@ function playPauseSong(obj, s) {
       currentSong.textContent = "play_arrow";
     }
     songTitle.textContent = s;
+    songArtist.textContent = a;
 
     currentSong = obj;
   }else{
