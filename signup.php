@@ -12,7 +12,8 @@
             session_start();
             $_SESSION["userEmail"] = $_POST["email"];
             $_SESSION["userName"] = $_POST["Uname"];
-            
+            $playlist = "CREATE TABLE ".$_SESSION['userName']." (id INT(6) NOT NULL)";
+            mysqli_query($conn, $playlist);
             header("Location: subs.php");
         } else {
             echo '<div class="alert alert-info">

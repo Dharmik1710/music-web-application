@@ -27,7 +27,6 @@
         <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <a class="nav-link active py-2" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" aria-controls="v-pills-home" aria-selected="true">Home</a>
           <a class="nav-link py-2" id="v-pills-playlists-tab" data-toggle="pill" href="#v-pills-playlists" role="tab" aria-controls="v-pills-playlists" aria-selected="false">Playlists</a>
-          <a class="nav-link py-2" id="v-pills-artists-tab" data-toggle="pill" href="#v-pills-artists" role="tab" aria-controls="v-pills-artists" aria-selected="false">Artists</a>
           <a class="nav-link py-2" id="v-pills-account-tab" data-toggle="pill" href="#v-pills-account" role="tab" aria-controls="v-pills-account" aria-selected="false">Account</a>
           <a class="nav-link py-2" href="logout.php">Logout</a>
         </div>
@@ -37,7 +36,7 @@
     
     
     <section class="song-disp col-10 pl-2">
-      <div class="overflow-auto mx-auto" style="background-color: rgb(38, 38, 38); height: 550px;">
+      <div class="overflow-auto mx-auto" style="background-image: linear-gradient(-45deg, #FCA311, black); height: 550px;">
 
         <div class="tab-content" id="v-pills-tabContent">
 
@@ -85,7 +84,9 @@
                         <div class="card my-2 bg-dark">
                           <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
                           <div class="card-img-overlay text-center mt-5 px-0">
-                            <i class="material-icons p-1">playlist_add</i>
+                            <form action="add_remove.php" method="get" style="display: inline-block;">
+                              <button type="submit" value="'.$song["id"].'" name="submit" style="border: 0; padding: 0; background-color: transparent; color: white;"><i class="material-icons p-1">playlist_add</i></button>
+                            </form>
                             <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
                             <i class="material-icons p-1">thumb_up</i>
                           </div>
@@ -157,7 +158,9 @@
                         <div class="card my-2 bg-dark">
                           <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
                           <div class="card-img-overlay text-center mt-5 px-0">
-                            <i class="material-icons p-1">playlist_add</i>
+                            <form action="add_remove.php" method="get" style="display: inline-block;">
+                              <button type="submit" value="'.$song["id"].'" name="submit" style="border: 0; padding: 0; background-color: transparent; color: white;"><i class="material-icons p-1">playlist_add</i></button>
+                            </form>
                             <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
                             <i class="material-icons p-1">thumb_up</i>
                           </div>
@@ -204,7 +207,9 @@
                         <div class="card my-2 bg-dark">
                           <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
                           <div class="card-img-overlay text-center mt-5 px-0">
-                            <i class="material-icons p-1">playlist_add</i>
+                            <form action="add_remove.php" method="get" style="display: inline-block;">
+                              <button type="submit" value="'.$song["id"].'" name="submit" style="border: 0; padding: 0; background-color: transparent; color: white;"><i class="material-icons p-1">playlist_add</i></button>
+                            </form>
                             <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
                             <i class="material-icons p-1">thumb_up</i>
                           </div>
@@ -228,7 +233,51 @@
         </div>
 
 
-        <div class="tab-pane fade" id="v-pills-playlists" role="tabpanel" aria-labelledby="v-pills-playlists-tab"><p style="color: white;">playlist</p></div>
+        <div class="tab-pane fade m-5 text-white" id="v-pills-playlists" role="tabpanel" aria-labelledby="v-pills-playlists-tab">
+          <div style="color: white;"><h3>Your Playlist</h3></div>
+            <?php
+
+            $queryCat = "SELECT id FROM ".$_SESSION["userName"]."";
+            $resultCat = mysqli_query($conn, $queryCat);
+            echo
+                '
+              <div class="category mt-4">
+                <div class="row mx-auto mt-2 mb-5 w-100">
+            ';
+
+            while($cat = mysqli_fetch_assoc($resultCat)){
+              $querySong = "SELECT * FROM songs WHERE id = ".$cat["id"]."";
+              $resultSong = mysqli_query($conn, $querySong);
+              while($song = mysqli_fetch_assoc($resultSong)){
+                echo
+                  '
+                    <div class="song-disp mr-4 mt-2">
+                      <div class="card my-2 bg-dark">
+                        <img class="card-img-top rounded" src="./Album_Art/'.$song["Song_Name"].'.jpg" style="height: 145px; width:145px;">
+                        <div class="card-img-overlay text-center mt-5 px-0">
+                          <form action="add_remove.php" method="get" style="display: inline-block;">
+                            <button type="submit" value="'.$song["id"].'" name="submit" style="border: 0; padding: 0; background-color: transparent; color: white;"><i class="material-icons p-1">delete</i></button>
+                          </form>
+                          <i class="material-icons p-1" onclick="playPauseSong(this, \''.$song["Song_Name"].'\',\''.$song["Artist"].'\')">play_arrow</i>
+                          <i class="material-icons p-1">thumb_up</i>
+                        </div>
+                      </div>
+                      <div class="song-name text-center mb-3" style="text-overflow: ellipsis; width:140px; white-space: nowrap; overflow: hidden;">'.$song["Song_Name"].'</div>
+                    </div>
+                  ';
+              }
+            }
+              echo 
+                  '
+                  </div>
+                </div>
+                ';
+
+          ?>  
+              
+        </div>
+  
+          
         <div class="tab-pane fade" id="v-pills-artists" role="tabpanel" aria-labelledby="v-pills-artists-tab"><p style="color: white;">artist</p></div>
         <div class="tab-pane fade" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab"><p style="color: white;">account</p></div>
       </div>
@@ -247,7 +296,14 @@
       <div class="song-img" id="songImg"><img id="img-thumb"></div>
       <div class="song-artist justify-content-center" id="songArtist"><a href="#"></a></div>
       <div class="song-opt">
-        <i class="material-icons"><a href="#">playlist_add</a></i>
+        <?php
+        echo
+        '
+        <form action="add_remove.php" method="get" style="display: inline-block;">
+          <button type="submit" value="'.$song["id"].'" name="submit" style="border: 0; padding: 0; background-color: transparent; color: white;"><i class="material-icons p-1">playlist_add</i></button>
+        </form>
+        ';
+        ?>
         <i class="material-icons"><a href="#">thumb_up</a></i>
         <i class="material-icons"><a href="#">notifications</a></i>
       </div>

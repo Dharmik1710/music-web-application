@@ -21,13 +21,13 @@ body,html{
 }
 
 .nav .active{
-  background-color: rgb(64, 64, 64);
+  background-color: #FCA311;
   border-radius: 4px;
   color: white;
 }
 
 .nav a:hover{
-  background-color: rgb(64, 64, 64);
+  background-color: #FCA311;
   color: white;
   border-radius: 5px;
 }
@@ -80,11 +80,11 @@ a:hover{
 }
 
 .card:hover img{
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .songName{
-  color: red;
+  color: #FCA311;
   text-overflow: ellipsis;
   width: 145px;
   overflow: hidden;
@@ -95,7 +95,7 @@ a:hover{
 /*Audio Player*/
 .audio-container{
   height: 100px;
-  background-color: gray;
+  background-color: #282828;
   width: 100%;
   color: white;
 }
