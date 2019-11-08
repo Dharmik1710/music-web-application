@@ -36,7 +36,7 @@
     
     
     <section class="song-disp col-10 pl-2">
-      <div class="overflow-auto mx-auto" style="background-image: linear-gradient(-45deg, #FCA311, black); height: 550px;">
+      <div class="overflow-auto mx-auto" style="background-image: linear-gradient(0deg, #FCA311, #FCA311, black); height: 580px;">
 
         <div class="tab-content" id="v-pills-tabContent">
 
@@ -291,7 +291,7 @@
 </section>
 
 <section class="audio-display fixed-bottom">
-  <div class="audio-container">
+  <div class="audio-container" style="background-color: #3A3A3A">
     <div class="song-info col-2">
       <div class="song-img" id="songImg"><img id="img-thumb"></div>
       <div class="song-artist justify-content-center" id="songArtist"><a href="#"></a></div>
